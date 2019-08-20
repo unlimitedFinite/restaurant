@@ -1,0 +1,10 @@
+<h1>I am the menus page</h1>
+
+<ul>
+  <% @menus.each do |menu| %>
+  <li>
+    <%= link_to menu.title, menu_path(menu.id)  %>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "New Menu", new_menu_path %>
