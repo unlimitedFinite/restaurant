@@ -1,3 +1,4 @@
 class Dish < ApplicationRecord
-  belongs_to :section
+  has_many :sections
+  has_many :menus, through: :sections
 end
