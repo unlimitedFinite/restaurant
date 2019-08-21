@@ -5,18 +5,17 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
-    @sections = Section.all
-    @dishes = Dish.all
   end
 
   def new
     @menu = Menu.new
+    @section = Section.new
   end
 
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
-      redirect_to menus_path
+      redirect_to menu_path(@menu.id)
     else
       render :new
     end
@@ -29,6 +28,8 @@ class MenusController < ApplicationController
   end
 
   def destroy
+    @menu = Menu.find(params[:id])
+    @menu.delete
   end
 
   private
