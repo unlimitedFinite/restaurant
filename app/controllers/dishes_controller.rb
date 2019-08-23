@@ -1,9 +1,9 @@
 class DishesController < ApplicationController
-  respond_to :html, :js
+
 
   def new
     @dish = Dish.new
-    @menu = Menu.find(params[:menu_id])
+    @menu = Menu.find(menu_params)
   end
 
   def create

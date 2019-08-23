@@ -1,4 +1,6 @@
 // $('#dish-form').html("<%= j (render 'new') %>");
 // $('#dish-form').slideDown(350);
 
-d = document.getElementById('dish-form').innerHTML = ("<%= j (render 'new') %>");
+d = document.getElementById('dish-form');
+d.innerHTML = ("<%= j (render 'new') %>");
+d.style.display = 'block';

@@ -9,6 +9,7 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    @menu.dishes.build
     @section = Section.new
   end
 
