@@ -1,9 +1,7 @@
-
-<h4>Add a new Dish to <%= @section.title %></h4>
+<h4>Edit Dish</h4>
 <%= simple_form_for [@menu, @section, @dish], remote: true do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :price %>
-  <%= f.button :submit %>
-  <%= link_to "Cancel", :back %>
+  <%= f.button :submit, label: 'Submit' %>
 <% end %>

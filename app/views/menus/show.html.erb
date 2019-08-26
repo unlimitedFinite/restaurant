@@ -1,20 +1,53 @@
 <h1>
   <%= @menu.title %>
   <%= link_to 'Delete menu', @menu, {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} %>
+  <%= link_to "Edit Menu", edit_menu_path %>
 </h1>
 <h3><%= @menu.price %></h3>
 <h5><%= @menu.description %></h5>
-<ul>
-  <% @menu.dishes.each do |dish| %>
+
+<hr>
+
+<!-- <ul class="dishes-list">
+  <#% @menu.dishes.each do |dish| %>
     <li>
-      <%= dish.title %>
-      <%= dish.description %>
-      <%= dish.price %>
-<!--       <%#= link_to 'Delete item', dish, {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} %> -->
+      <#%= dish.title %>
+      <#%= dish.description %>
+      <#%= dish.price %>
+      <#%= link_to 'Delete', menu_dish_path(@menu, dish), {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} %>
+      <#%= link_to 'Edit', edit_menu_dish_path(@menu, dish), remote: true %>
     </li>
+  <#% end %>
+</ul> -->
+
+<hr>
+
+<ul class="dishes-list">
+  <% @menu.sections.each do |section| %>
+    <li>
+      <%= section.title.upcase %>
+      <%= link_to "Add Dish", new_menu_section_dish_path(@menu, section), remote:true %>
+      <% section.dishes.each do |dish| %>
+        <li>
+          <%= dish.title %>
+          <%= dish.description %>
+          <%= dish.price %>
+          <%= link_to 'Delete', menu_section_dish_path(@menu, dish), {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} %>
+          <%= link_to 'Edit', edit_menu_section_dish_path(@menu, section, dish), remote: true %>
+        </li>
+      <% end %>
+    </li>
+    <hr>
   <% end %>
+    <div id="dish-form" style="display:none;"></div>
 </ul>
-<%= link_to "Add Dish", new_menu_dish_path(@menu), remote:true %>
-<%= link_to "Edit Menu", edit_menu_path %>
+
+
+
+<hr>
+
+
+<%= link_to "New Section", new_menu_section_path(@menu), remote:true %>
+<div id="section-form" style="display:none;"></div>
 
 <div id="dish-form" style="display:none;"></div>

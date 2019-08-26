@@ -1,4 +1,4 @@
 class Section < ApplicationRecord
-  belongs_to :menu
-  belongs_to :dish
+  has_and_belongs_to_many :menus
+  has_and_belongs_to_many :dishes
 end
