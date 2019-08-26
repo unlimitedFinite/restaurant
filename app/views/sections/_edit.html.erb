@@ -1,0 +1,10 @@
+<h3>Add dishes to <%= @section.title %> section</h3>
+
+<%= simple_form_for [@menu, @section], remote: true do |f| %>
+  <%= f.association :dishes, :input_html => { :multiple => false } %>
+
+  <%= f.button :submit, 'Add dish' %>
+  <%= link_to "Cancel", :back %>
+<% end %>
+
+<%= link_to "New Dish", new_menu_section_dish_path(@menu, @section), remote:true %>

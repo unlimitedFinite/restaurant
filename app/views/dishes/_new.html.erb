@@ -1,5 +1,6 @@
 
-<h4>Add a new Dish to <%= @section.title %></h4>
+<h4>Create new dish</h4>
+
 <%= simple_form_for [@menu, @section, @dish], remote: true do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>

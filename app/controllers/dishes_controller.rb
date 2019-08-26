@@ -4,6 +4,7 @@ class DishesController < ApplicationController
 
 
   def new
+    @dishes = Dish.all
     @menu = Menu.find(menu_params)
     @dish = Dish.new
     @section = Section.find(section_params)
