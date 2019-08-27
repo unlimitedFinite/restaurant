@@ -5,6 +5,8 @@ ruby '2.5.3'
 
 gem 'pry'
 gem 'simple_form'
+gem 'bootstrap'
+gem 'font-awesome-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0.rc1'

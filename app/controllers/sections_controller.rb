@@ -47,8 +47,24 @@ class SectionsController < ApplicationController
     end
   end
 
-private
-  def section_params
-    params.require(:section).permit(:title)
+  def edit_name
+    @section = Section.find(params[:section_id])
+    @menu = Menu.find(params[:menu_id])
   end
-end
+
+  def update_name
+    @section = Section.find(params[:section_id])
+    if @section.update(section_params)
+      redirect_to menu_path(params[:menu_id])
+      flash[:notice] = 'Section Updated'
+    else
+      flash[:notice] = 'Please try again..'
+      render :show
+    end
+  end
+
+  private
+    def section_params
+      params.require(:section).permit(:title)
+    end
+  end
