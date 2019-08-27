@@ -31,6 +31,8 @@
       <ul>
         <% section.dishes.each do |dish| %>
           <li>
+            <%= link_to "^", up_dish_path(@menu, section, dish), {method: 'patch', remote: true} %>
+            <%= link_to "v", down_dish_path(@menu, section, dish), {method: 'patch', remote: true} %>
             <%= dish.title %>
             <%= dish.description %>
             <%= dish.price %>
@@ -48,6 +50,7 @@
           <% end %>
         </li>
       </ul>
+
     <hr>
     </li>
   <% end %>
