@@ -31,6 +31,12 @@ class SectionsController < ApplicationController
     end
   end
 
+  def destroy
+    section = Section.find(params[:id])
+    section.destroy
+    redirect_to menu_path(params[:menu_id])
+  end
+
   def remove
     @dish = Dish.find(params[:id])
     @section = Section.find(params[:section_id])

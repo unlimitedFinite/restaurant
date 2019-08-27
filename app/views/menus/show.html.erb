@@ -13,6 +13,7 @@
     <li>
       <%= section.title.upcase %>
       <%= link_to "Edit Section", edit_menu_section_path(@menu, section), remote:true %>
+      <%= link_to 'Remove Section', menu_section_path(@menu, section), {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} %>
       <ul>
         <% section.dishes.each do |dish| %>
           <li>

@@ -9,8 +9,6 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
-    @menu.dishes.build
-    @section = Section.new
   end
 
   def create
@@ -23,9 +21,16 @@ class MenusController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find(params[:id])
   end
 
   def update
+    @menu = Menu.find(params[:id])
+    if @menu.update(menu_params)
+      redirect_to menu_path(@menu)
+    else
+      render :edit
+    end
   end
 
   def destroy
