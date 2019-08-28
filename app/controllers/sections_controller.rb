@@ -43,16 +43,6 @@ class SectionsController < ApplicationController
     redirect_to menu_path(params[:menu_id])
   end
 
-  def remove
-    @dish = Dish.find(params[:id])
-    @section = Section.find(params[:section_id])
-    if @section.dishes.delete(@dish)
-      redirect_to menu_path(params[:menu_id])
-    else
-      render :show
-    end
-  end
-
   def edit_name
     @section = Section.find(params[:section_id])
     @menu = Menu.find(params[:menu_id])
