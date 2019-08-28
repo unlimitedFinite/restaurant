@@ -3,7 +3,7 @@
 <%= simple_form_for [@menu, @section], remote: true do |f| %>
   <%= f.association :dishes, :input_html => { :multiple => false } %>
 
-  <%= f.button :submit, 'Add dish' %>
+  <%= f.button :submit, 'Clone dish' %>
   <%= link_to "Cancel", :back %>
 <% end %>
 

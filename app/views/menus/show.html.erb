@@ -20,56 +20,8 @@
 <ul>
   <%=  render @menu.sections %>
 </ul>
-<%
-=begin %>
-
-<ul class="dishes-list">
-  <% @menu.sections.each do |section| %>
-    <li>
-      <%= section.title.upcase %>
-      <%= link_to edit_name_path(@menu, section), remote: true do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
-      <%= link_to menu_section_path(@menu, section), {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} do %>
-        <i class="fa fa-trash"></i>
-      <% end %>
-
-      <ul>
-        <% section.dishes.each do |dish| %>
-          <li>
-            <%= dish.sort %>
-            <%= link_to "^", up_dish_path(@menu, section, dish), {method: 'patch', remote: true} %>
-            <%= link_to "v", down_dish_path(@menu, section, dish), {method: 'patch', remote: true} %>
-            <%= dish.title %>
-            <%= dish.description %>
-            <%= dish.price %>
-
-            <%= link_to edit_menu_section_dish_path(@menu, section, dish), remote: true do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
-            <%= link_to remove_dish_path(@menu, section, dish), {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} do %>
-              <i class="fa fa-times"></i>
-            <% end %>
-          </li>
-        <% end %>
-        <li>
-          <%= link_to edit_menu_section_path(@menu, section), remote:true do %>
-            <i class="fa fa-plus"></i> Add dish...
-          <% end %>
-        </li>
-      </ul>
-
-    <hr>
-    </li>
-  <% end %>
-    <div id="dish-form" style="display:none;"></div>
-</ul>
-<%
-=end %>
-
 
 <hr>
-
 
 <div id="section-form" style="display:none;"></div>
 <div id="section-edit-form" style="display:none;"></div>

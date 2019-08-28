@@ -24,7 +24,8 @@ class SectionsController < ApplicationController
   def update
     @section = Section.find(params[:id])
     @dish = Dish.find(params[:section][:dish_ids])
-    if @section.dishes << @dish
+    @clone = @dish.dup
+    if @section.dishes << @clone
       redirect_to menu_path(params[:menu_id])
     else
       render :show
