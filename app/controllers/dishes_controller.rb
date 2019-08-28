@@ -50,7 +50,7 @@ class DishesController < ApplicationController
     dish = Dish.find(params[:id])
     dish.sort += 1
     if dish.save
-      render :show
+      redirect_to menu_path(params[:menu_id])
     else
       render :show
     end
@@ -59,7 +59,7 @@ class DishesController < ApplicationController
     dish = Dish.find(params[:id])
     dish.sort -= 1
     if dish.save
-      render :show
+      redirect_to menu_path(params[:menu_id])
     else
       render :show
     end

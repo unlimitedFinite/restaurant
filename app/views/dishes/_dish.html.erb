@@ -1,0 +1,18 @@
+<li>
+  <%= link_to up_dish_path(@menu, section, dish), {method: 'patch', remote: true} do %>
+    <i class="fa fa-arrow-up"></i>
+  <% end %>
+  <%= link_to down_dish_path(@menu, section, dish), {method: 'patch', remote: true} do %>
+    <i class="fa fa-arrow-down"></i>
+  <% end %>
+  <%= dish.title %>
+  <%= dish.description %>
+  <%= dish.price %>
+
+  <%= link_to edit_menu_section_dish_path(@menu, section, dish), remote: true do %>
+    <i class="fa fa-edit"></i>
+  <% end %>
+  <%= link_to remove_dish_path(@menu, section, dish), {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} do %>
+    <i class="fa fa-times"></i>
+  <% end %>
+</li>

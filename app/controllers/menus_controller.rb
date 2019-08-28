@@ -5,6 +5,7 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
+    @sections = Section.where(menu_id: @menu.id)
   end
 
   def new

@@ -17,6 +17,12 @@
   <h4><i class="fa fa-plus"></i> New Section</h4>
 <% end %>
 
+<ul>
+  <%=  render @menu.sections %>
+</ul>
+<%
+=begin %>
+
 <ul class="dishes-list">
   <% @menu.sections.each do |section| %>
     <li>
@@ -31,11 +37,13 @@
       <ul>
         <% section.dishes.each do |dish| %>
           <li>
+            <%= dish.sort %>
             <%= link_to "^", up_dish_path(@menu, section, dish), {method: 'patch', remote: true} %>
             <%= link_to "v", down_dish_path(@menu, section, dish), {method: 'patch', remote: true} %>
             <%= dish.title %>
             <%= dish.description %>
             <%= dish.price %>
+
             <%= link_to edit_menu_section_dish_path(@menu, section, dish), remote: true do %>
               <i class="fa fa-edit"></i>
             <% end %>
@@ -56,7 +64,8 @@
   <% end %>
     <div id="dish-form" style="display:none;"></div>
 </ul>
-
+<%
+=end %>
 
 
 <hr>
