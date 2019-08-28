@@ -1,4 +1,5 @@
 <li>
+  <%= dish.sort %> :
   <%= link_to up_dish_path(@menu, section, dish), {method: 'patch', remote: true} do %>
     <i class="fa fa-arrow-up"></i>
   <% end %>
