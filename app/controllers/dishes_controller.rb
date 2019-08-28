@@ -1,8 +1,4 @@
-
-
 class DishesController < ApplicationController
-
-
   def new
     @dishes = Dish.all
     @menu = Menu.find(menu_params)
@@ -14,6 +10,11 @@ class DishesController < ApplicationController
     @menu = Menu.find(menu_params)
     @section = Section.find(section_params)
     @dish = Dish.new(dish_params)
+    if (d = Dish.last)
+      @dish.sort = d.sort + 1
+    else
+      @dish.sort = 1
+    end
     if @dish.save
       @section.dishes << @dish
       redirect_to menu_path(@menu)
@@ -43,6 +44,25 @@ class DishesController < ApplicationController
     dish = Dish.find(params[:id])
     dish.destroy
     redirect_to menu_path(params[:menu_id])
+  end
+
+  def up
+    dish = Dish.find(params[:id])
+    dish.sort += 1
+    if dish.save
+      redirect_to menu_path(params[:menu_id])
+    else
+      render :show
+    end
+  end
+  def down
+    dish = Dish.find(params[:id])
+    dish.sort -= 1
+    if dish.save
+      redirect_to menu_path(params[:menu_id])
+    else
+      render :show
+    end
   end
 
   private
