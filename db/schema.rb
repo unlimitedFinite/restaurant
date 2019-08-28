@@ -1,4 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
+§# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_145956) do
+ActiveRecord::Schema.define(version: 2019_08_26_183307) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "title"
@@ -18,8 +18,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_145956) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "section_id"
-    t.index ["section_id"], name: "index_dishes_on_section_id"
+  end
+
+  create_table "dishes_sections", id: false, force: :cascade do |t|
+    t.integer "section_id", null: false
+    t.integer "dish_id", null: false
+    t.index ["dish_id"], name: "index_dishes_sections_on_dish_id"
+    t.index ["section_id"], name: "index_dishes_sections_on_section_id"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -30,15 +35,17 @@ ActiveRecord::Schema.define(version: 2019_08_20_145956) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "sections", force: :cascade do |t|
-    t.string "title"
-    t.string "information"
+  create_table "menus_sections", id: false, force: :cascade do |t|
     t.integer "menu_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["menu_id"], name: "index_sections_on_menu_id"
+    t.integer "section_id", null: false
+    t.index ["menu_id"], name: "index_menus_sections_on_menu_id"
+    t.index ["section_id"], name: "index_menus_sections_on_section_id"
   end
 
-  add_foreign_key "dishes", "sections"
-  add_foreign_key "sections", "menus"
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end

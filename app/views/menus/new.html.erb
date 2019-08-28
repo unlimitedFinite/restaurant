@@ -1,6 +1,6 @@
 <h1>New Menu</h1>
 
-<%= form_with scope: :menu, url: menus_path, local: true do |form| %>
+<%= form_with model: @menu, url: menus_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -16,6 +16,11 @@
     <%= form.number_field :price, step: 0.01
  %>
   </p>
+ <!--  <p>
+    <%#= form.collection_select(:section_id, Section.all, :id, :title) %>
+    <%#= link_to "Add new Section", new_section_path  %>
+  </p> -->
+
 
   <p>
     <%= form.submit %>

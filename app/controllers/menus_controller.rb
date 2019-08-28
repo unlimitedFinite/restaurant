@@ -5,8 +5,6 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
-    @sections = Section.all
-    @dishes = Dish.all
   end
 
   def new
@@ -16,19 +14,29 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
-      redirect_to menus_path
+      redirect_to menu_path(@menu.id)
     else
       render :new
     end
   end
 
   def edit
+    @menu = Menu.find(params[:id])
   end
 
   def update
+    @menu = Menu.find(params[:id])
+    if @menu.update(menu_params)
+      redirect_to menu_path(@menu)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @menu = Menu.find(params[:id])
+    @menu.delete
+    redirect_to menus_path
   end
 
   private
