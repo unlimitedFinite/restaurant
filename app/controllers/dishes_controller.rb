@@ -10,11 +10,8 @@ class DishesController < ApplicationController
 
   def create
     @dish = Dish.new(dish_params)
-    @dish.sort = if @section.dishes.last
-                   @section.dishes.last.sort + 1
-                 else
-                   1
-                 end
+    last = @section.dishes.last
+    last ? @dish.sort = last.sort + 1 : @dish.sort = 1
     if @dish.save
       @section.dishes << @dish
       redirect_to menu_path(@menu)
@@ -23,8 +20,7 @@ class DishesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit() end
 
   def update
     if @dish.update(dish_params)
@@ -43,32 +39,29 @@ class DishesController < ApplicationController
   end
 
   def up
-    return false if @dish.sort < 2
-
-    dish_i = 0
-    @section.dishes.each_with_index do |d, i|
-      dish_i = i - 1 if @dish == d
-    end
-    dish2 = @section.dishes[dish_i]
-    dish2.sort += 1
-    @dish.sort -= 1
-    if @dish.save && dish2.save
-      redirect_to menu_path(params[:menu_id])
-    else
-      render :show
-    end
+    return false if @dish == @section.dishes.first
+    swap('up', @dish, @section)
   end
 
   def down
     return false if @dish == @section.dishes.last
+    swap('down', @dish, @section)
+  end
 
+  def swap(direction, dish, section)
     dish_i = 0
-    @section.dishes.each_with_index do |d, i|
-      dish_i = i + 1 if @dish == d
+    section.dishes.each_with_index do |d, i|
+      dish_i = i - 1 if dish == d && direction == 'up'
+      dish_i = i + 1 if dish == d && direction == 'down'
     end
-    dish2 = @section.dishes[dish_i]
-    dish2.sort -= 1
-    @dish.sort += 1
+    dish2 = section.dishes[dish_i]
+    if direction == 'up'
+      dish2.sort += 1
+      dish.sort -= 1
+    elsif direction == 'down'
+      dish2.sort -= 1
+      dish.sort += 1
+    end
     if @dish.save && dish2.save
       redirect_to menu_path(params[:menu_id])
     else
