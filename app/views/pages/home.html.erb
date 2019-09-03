@@ -46,7 +46,7 @@
         </ul>
       </div>
     </div>
-    <div class="tab-content text-left">
+    <div class="tab-content text-center">
       <% @menus.each_with_index do |menu, index| %>
         <div class="tab-pane fade show active" id="pills-<%= index %>" role="tabpanel" aria-labelledby="pills-<%= index %>-tab">
           <div class="row">
@@ -64,7 +64,11 @@
           </div>
           <div class="row">
             <% menu.sections.each do |section| %>
-              <div class="col-md-6 site-animate">
+              <% if menu.sections.length == 1 %>
+                <div class="col-md-12 site-animate">
+              <% else  %>
+                <div class="col-md-6 site-animate">
+              <% end %>
                 <h5 class="h3" style="text-align: center;"><%= section.title %></h5>
                 <br>
                 <% section.dishes.each do |dish| %>
