@@ -47,44 +47,43 @@
       </div>
     </div>
     <div class="tab-content text-center">
-      <% @menus.each_with_index do |menu, index| %>
-        <div class="tab-pane fade show active" id="pills-<%= index %>" role="tabpanel" aria-labelledby="pills-<%= index %>-tab">
-          <div class="row">
-            <div class="col-md-12 text-center mb-0.5 site-animate">
-              <div class="row justify-content-center">
-                <div class="col-md-6">
-                  <p class="text-center">
-                    <%= menu.description %>
-                    <br>
-                    £<%= menu.price %>
-                  </p>
-                </div>
-              </div>
+      <h1 class="text-center">
+        <%= link_to "<",  %>
+        <%= @menu.title %> </h1>
+      <div class="row">
+        <div class="col-md-12 text-center mb-0.5 site-animate">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <p>
+                <%= @menu.description %>
+                <br>
+                £<%= @menu.price %>
+              </p>
             </div>
           </div>
-          <div class="row">
-            <% menu.sections.each do |section| %>
-              <% if menu.sections.length == 1 %>
-                <div class="col-md-12 site-animate">
-              <% else  %>
-                <div class="col-md-6 site-animate">
-              <% end %>
-                <h5 class="h3" style="text-align: center;"><%= section.title %></h5>
-                <br>
-                <% section.dishes.each do |dish| %>
-                  <div class="media menu-item">
-                      <div class="media-body">
-                        <h5 class="mt-0 menu-header"><%= dish.title %></h5>
-                        <h6 class="text-primary menu-price"><%= dish.price %></h6>
-                        <p style="clear: both;"><%= dish.description %></p>
-                      </div>
+        </div>
+      </div>
+      <div class="row">
+        <% @menu.sections.each do |section| %>
+          <% if @menu.sections.length == 1 %>
+            <div class="col-md-12 site-animate">
+          <% else  %>
+            <div class="col-md-6 site-animate">
+          <% end %>
+            <h5 class="h3" style="text-align: center;"><%= section.title %></h5>
+            <br>
+            <% section.dishes.each do |dish| %>
+              <div class="media menu-item">
+                  <div class="media-body">
+                    <h5 class="mt-0 menu-header"><%= dish.title %></h5>
+                    <h6 class="text-primary menu-price"><%= dish.price %></h6>
+                    <p style="clear: both;"><%= dish.description %></p>
                   </div>
-                <% end %>
               </div>
             <% end %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>

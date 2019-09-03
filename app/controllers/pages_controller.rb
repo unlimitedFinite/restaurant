@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @menus = Menu.all
+    @menu = Menu.first
   end
 
   def bnb
