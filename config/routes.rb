@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :dishes
     end
   end
+  get 'menus/:id/previous', to: 'menus#previous_menu', as: :previous_menu
+  get 'menus/:id/next', to: 'menus#next_menu', as: :next_menu
   get 'pages/contact', to: 'pages#contact'
   get 'pages/bnb', to: 'pages#bnb'
   root to: 'pages#home'
