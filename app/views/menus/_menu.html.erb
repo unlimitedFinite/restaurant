@@ -1,8 +1,12 @@
 <div class="tab-content text-center">
   <h1 class="text-center">
-    <%= link_to_if(Menu.find(@menu.id - 1), "<", previous_menu_path(@menu), remote: true ) %>
+    <% if Menu.find_by(id: @menu.id - 1) %>
+      <%= link_to "<", previous_menu_path(@menu), remote: true %>
+    <% end %>
     <%= @menu.title %>
-    <%= link_to ">", next_menu_path(@menu), remote: true %>
+    <% if Menu.find_by(id: @menu.id + 1) %>
+      <%= link_to ">", next_menu_path(@menu), remote: true %>
+    <% end %>
   </h1>
   <div class="row">
     <div class="col-md-12 text-center mb-0.5 site-animate">
