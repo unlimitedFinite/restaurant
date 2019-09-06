@@ -40,6 +40,31 @@ class MenusController < ApplicationController
     redirect_to menus_path
   end
 
+  def previous_menu
+    @menus = Menu.all
+    @menu = Menu.find(params[:id].to_i - 1)
+    respond_to do |format|
+      # if @menu
+        format.js
+      # else
+      #   format.html { render root_path }
+      # end
+    end
+  end
+
+  def next_menu
+    @menus = Menu.all
+    @menu = Menu.find(params[:id].to_i + 1)
+    respond_to do |format|
+      # if @menu
+        format.js
+      # else
+      #   format.html { render root_path }
+      # end
+    end
+  end
+
+
   private
 
   def menu_params
