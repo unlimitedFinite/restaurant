@@ -16,5 +16,13 @@
         <li class="nav-item"><a href="/pages/contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
+    <div class="admin">
+      <% if user_signed_in? %>
+        <%= link_to "Edit Menus", menus_path %> |
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Admin Area",new_session_path(@user) %>
+      <% end %>
+    </div>
   </div>
 </nav>
