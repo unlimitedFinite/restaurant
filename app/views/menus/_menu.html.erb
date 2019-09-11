@@ -3,7 +3,7 @@
     <span class="arrow-btn">
       <% if Menu.find_by(id: @menu.id - 1) %>
         <%= link_to previous_menu_path(@menu), remote: true do %>
-          <i class="fa fa-arrow-circle-left"></i>
+          <i class="arrow fa fa-arrow-circle-left"></i>
         <% end %>
       <% end %>
     </span>
@@ -11,7 +11,7 @@
     <span class="arrow-btn">
       <% if Menu.find_by(id: @menu.id + 1) %>
         <%= link_to next_menu_path(@menu), remote: true do %>
-          <i class="fa fa-arrow-circle-right"></i>
+          <i class="arrow fa fa-arrow-circle-right"></i>
         <% end %>
       <% end %>
     </span>
@@ -29,10 +29,10 @@
       </div>
     </div>
   </div>
-  <hr>
   <% @menu.sections.each do |section| %>
     <div class="row">
       <div class="col-12">
+        <hr>
         <h5 class="h3 section-title"><%= section.title %></h5>
       </div>
       <br>
@@ -41,13 +41,13 @@
         <%# if section.dishes.length === 1 %>
           <!-- <div class="col-12"> -->
         <%# else %>
-        <div class="col-md-6">
+        <div class="col-md-6 col-lg-4">
         <%# end %>
           <div class="media menu-item">
             <div class="media-body">
               <h5 class="mt-0 dish-title"><%= dish.title %></h5>
               <h6 class="text-primary dish-price"><%= dish.price %></h6>
-              <p style="clear: both;"><%= dish.description %></p>
+              <p class="dish-description"><%= dish.description %></p>
             </div>
           </div>
         </div>

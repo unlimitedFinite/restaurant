@@ -8,9 +8,25 @@
   font-decoration: none;
 }
 
+.sticky {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100%;
+  z-index: 3;
+  height: 60px;
+}
+
+section {
+  padding-top: 50px;
+}
+
+.arrow {
+  color: #2b822f;
+}
+
 .admin {
   position: absolute;
-  top: 5px;
+  bottom: 5px;
   right: 5px;
   color: #8e8e8e;
   font-size: 0.8rem;
@@ -24,12 +40,15 @@
 
 .menu-title {
   font-family: "Raleway", sans-serif;
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  border: 1.5px solid black;
-  padding: 8px 0px;
+  border: 1.5px solid #d4d4d4;
+  padding: 4px 0px;
   justify-content: space-around;
   display: flex;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  margin-bottom: 20px;
 }
 
 .menu-info {
@@ -45,7 +64,7 @@ hr {
 }
 
 .section-title {
-  font-weight: bold !important;
+  font-weight: bold;
   font-size: 1.75rem;
   text-align: center;
   margin-bottom: 16px;
@@ -66,4 +85,27 @@ hr {
   padding-right: 20px;
   text-align: right !important;
   color: #FDA403 !important;
+}
+
+.dish-description {
+  padding-left: 8px;
+}
+
+.form-container {
+  background-color: #cecece;
+  color: black;
+  min-width: 400px;
+  margin: 0px auto;
+  padding: 25px;
+  border-radius: 25px;
+  font-size: 11px;
+}
+
+.login {
+  padding-top: 90px;
+}
+.form-inputs {
+  input {
+    width: 300px;
+  }
 }
