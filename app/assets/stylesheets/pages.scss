@@ -12,5 +12,12 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  color: white;
+  color: #8e8e8e;
+  font-size: 0.8rem;
+  a {
+    color: #8e8e8e;
+    }
+  a:hover {
+    color: white;
+  }
 }

@@ -10,10 +10,10 @@
 
     <div class="collapse navbar-collapse" id="site-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="/menus" class="nav-link">Eat</a></li>
-        <li class="nav-item"><a href="pages/bnb" class="nav-link">Sleep</a></li>
-        <li class="nav-item"><a href="/pages/contact" class="nav-link">Contact</a></li>
+        <li class="nav-item active"><%= link_to "Home", root_path(anchor: "home"), data: { turbolinks: false }, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Eat", root_path(anchor: "menus"), data: { turbolinks: false }, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Sleep", root_path(anchor: "bnb"), data: { turbolinks: false }, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Contact", root_path(anchor: "contact"), data: { turbolinks: false }, class: 'nav-link' %></li>
       </ul>
     </div>
     <div class="admin">
