@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_081710) do
+ActiveRecord::Schema.define(version: 2019_09_11_051242) do
 
   create_table "dishes", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.decimal "price"
+    t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "sort"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_081710) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
