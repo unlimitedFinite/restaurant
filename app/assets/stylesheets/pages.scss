@@ -21,3 +21,49 @@
     color: white;
   }
 }
+
+.menu-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  border: 1.5px solid black;
+  padding: 8px 0px;
+  justify-content: space-around;
+  display: flex;
+}
+
+.menu-info {
+  color: #808080;
+  font-family: "Raleway", sans-serif;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1)
+}
+
+.section-title {
+  font-weight: bold !important;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.dish-title {
+  line-height: 1.45;
+  font-family: "Playfair Display", serif;
+  font-weight: bold !important;
+  font-size: 1.25rem;
+  display: inline;
+}
+
+.dish-price {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  float: right;
+  padding-right: 20px;
+  text-align: right !important;
+  color: #FDA403 !important;
+}
