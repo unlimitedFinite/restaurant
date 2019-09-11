@@ -3,8 +3,6 @@
   text-shadow: 20px;
 }
 
-
-
 .h3 {
   text-decoration: underline;
   text-decoration-color: rgba(80, 67, 67, 0.2);
@@ -903,3 +901,17 @@ textarea.form-control {
     stroke-dashoffset: -136px;
   }
 }
+
+
+/*.media-body {
+  text-align: center !important;
+}*/
+
+.site-animate {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*.menu-header {
+  float: none;
+}*/
