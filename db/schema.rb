@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_051242) do
+ActiveRecord::Schema.define(version: 2019_09_11_085804) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "dishes", force: :cascade do |t|
     t.string "title"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 2019_09_11_051242) do
   end
 
   create_table "dishes_sections", id: false, force: :cascade do |t|
-    t.integer "section_id", null: false
-    t.integer "dish_id", null: false
+    t.bigint "section_id", null: false
+    t.bigint "dish_id", null: false
     t.index ["dish_id"], name: "index_dishes_sections_on_dish_id"
     t.index ["section_id"], name: "index_dishes_sections_on_section_id"
   end
@@ -31,14 +34,14 @@ ActiveRecord::Schema.define(version: 2019_09_11_051242) do
   create_table "menus", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.decimal "price"
+    t.string "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "menus_sections", id: false, force: :cascade do |t|
-    t.integer "menu_id", null: false
-    t.integer "section_id", null: false
+    t.bigint "menu_id", null: false
+    t.bigint "section_id", null: false
     t.index ["menu_id"], name: "index_menus_sections_on_menu_id"
     t.index ["section_id"], name: "index_menus_sections_on_section_id"
   end
