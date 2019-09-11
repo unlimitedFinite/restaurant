@@ -19,22 +19,4 @@
 /*@import 'font-awesome.css'*/
 
 
-@import 'style.css'
-
-.media-body {
-  text-align: center !important;
-}
-
-.site-animate {
-  opacity: 1;
-  visibility: visible;
-}
-
-.menu-header {
-  float: none;
-}
-
-.section-title {
-  font-weight: bold;
-  font-size: 1.75rem;
-}
+@import 'style.css';

@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.media-body {
+  text-align: center !important;
+}
+
+.site-animate {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-header {
+  float: none;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
 .arrow-btn {
   width: 25px;
   height: 25px;
