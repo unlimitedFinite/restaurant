@@ -35,6 +35,7 @@
     <div class="row">
       <div class="col-md-12 text-center mb-4 site-animate">
         <h2 class="display-4">Our Food Menus</h2>
+        <p class="mb-0">Please use the arrow buttons to navigate between our menus</p>
       </div>
     </div>
     <div id="menu-div">
@@ -155,12 +156,12 @@
 </section>
 <!-- END section -->
 
-<section class="site-section bg-light" id="section-contact">
+<section class="site-section bg-light" id="contact">
   <div class="container">
     <div class="row">
 
       <div class="col-md-12 text-center mb-5 site-animate">
-        <h2 class="display-4" id="contact">Get In Touch</h2>
+        <h2 class="display-4">Get In Touch</h2>
         <div class="row justify-content-center">
           <div class="col-md-7">
             <p class="lead"></p>
@@ -215,7 +216,7 @@
 <footer class="site-footer site-bg-dark site-section">
   <div class="container">
     <div class="row site-animate">
-       <div class="col-md-12 text-center">
+      <div class="col-md-12 text-center">
         <div class="site-footer-widget mb-4">
           <ul class="site-footer-social list-unstyled ">
             <li class="site-animate"><a href="#"><span class="icon-facebook"><i class="fa fa-facebook"></i></span></a></li>
@@ -226,6 +227,14 @@
       <div class="col-md-12 text-center">
         <p>&copy; Bistro en Glaze
         <script>document.write(new Date().getFullYear());</script>. All rights reserved | This website was built with <i class="fa fa-heart"></i> by <a href="https://deltodesco.com" target="_blank">Daniele Deltodesco</a>
+        <div class="admin">
+          <% if user_signed_in? %>
+            <%= link_to "Edit Menus", menus_path %> |
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Admin Area",new_session_path(@user) %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

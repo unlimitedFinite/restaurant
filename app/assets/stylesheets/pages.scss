@@ -8,9 +8,25 @@
   font-decoration: none;
 }
 
+.sticky {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100%;
+  z-index: 3;
+  height: 60px;
+}
+
+section {
+  padding-top: 50px;
+}
+
+.arrow {
+  color: #2b822f;
+}
+
 .admin {
   position: absolute;
-  top: 5px;
+  bottom: 5px;
   right: 5px;
   color: #8e8e8e;
   font-size: 0.8rem;
@@ -19,5 +35,77 @@
     }
   a:hover {
     color: white;
+  }
+}
+
+.menu-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  border: 1.5px solid #d4d4d4;
+  padding: 4px 0px;
+  justify-content: space-around;
+  display: flex;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  margin-bottom: 20px;
+}
+
+.menu-info {
+  color: #808080;
+  font-family: "Raleway", sans-serif;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1)
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.dish-title {
+  line-height: 1.45;
+  font-family: "Playfair Display", serif;
+  font-weight: bold !important;
+  font-size: 1.25rem;
+  display: inline;
+}
+
+.dish-price {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  float: right;
+  padding-right: 20px;
+  text-align: right !important;
+  color: #FDA403 !important;
+}
+
+.dish-description {
+  padding-left: 8px;
+}
+
+.form-container {
+  background-color: #cecece;
+  color: black;
+  min-width: 400px;
+  margin: 0px auto;
+  padding: 25px;
+  border-radius: 25px;
+  font-size: 11px;
+}
+
+.login {
+  padding-top: 90px;
+}
+.form-inputs {
+  input {
+    width: 300px;
   }
 }
