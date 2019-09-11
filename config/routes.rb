@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   # get 'pages/contact', to: 'pages#contact'
   # get 'pages/bnb', to: 'pages#bnb'
   root to: 'pages#home'
+  get 'pages', to: 'pages#home'
 end
