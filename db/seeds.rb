@@ -6,24 +6,12 @@ User.create(
   password: 'password1'
 )
 
-p "Creating Sample Menu..."
+puts "Creating Main Menu..."
 
-menu = Menu.create(
-  title: 'Sample',
-  description: 'Available Monday to Friday',
-  price: '£10 for 3 courses'
+Menu.create(
+  title: 'Main Menu',
+  description: 'Prix Fixe promotion available Tuesday to Friday evenings',
+  price: '2 Courses for £15 (PF Only)'
 )
-
-starters = Section.create(
-  title: 'Starters'
-)
-
-mains = Section.create(
-  title: 'Main Course'
-)
-
-menu.sections << starters
-menu.sections << mains
-menu.save
 
 p "Database seeded!"
