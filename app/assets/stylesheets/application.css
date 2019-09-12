@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
- */
- /*
  *= require font-awesome
+ *= require bootstrap
+ *= require style
  */
+
 /*@import 'font-awesome.css'*/
-@import 'style.css';
+/*@import 'style.css';*/
