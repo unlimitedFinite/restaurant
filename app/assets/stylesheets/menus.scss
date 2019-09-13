@@ -12,3 +12,17 @@ a {
 ul {
   list-style: none;
 }
+
+.edit-container {
+  background-color: light-gray;
+  border: 1px solid gray;
+  border-radius: 15px;
+}
+
+.menu-input {
+  width: 400px;
+}
+
+textarea.menu-input {
+  height: 80px;
+}
