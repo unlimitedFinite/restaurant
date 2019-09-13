@@ -1,4 +1,5 @@
 <%= simple_form_for [@menu, @section], :url => update_name_path, :method => :patch, remote:true do |f| %>
   <%= f.input :title %>
-  <%= f.submit %>
+  <%= f.input :description %>
+  <%= f.submit 'Update', class: 'btn btn-primary' %>
 <% end %>

@@ -1,42 +1,31 @@
-<section class="login">
+<section>
   <div class="container text-center">
+    <h2 class="display-4 mb-3">
+      <%= @menu.title %>
+      <%= link_to edit_menu_path do %>
+        <i class="fa fa-edit"></i>
+      <% end %>
+      <%= link_to @menu, {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
+    </h2>
+    <p class="menu-info"><%= @menu.description %></p>
+    <p class="menu-info"><%= @menu.price %></p>
     <div class="row justify-content-center">
-      <div class="d-flex col-lg-6 col-md-8">
-        <div class="form-container">
-          <%= link_to "Back to All Menus", menus_path %>
-          <h1 class="mt-5">
-            <%= @menu.title %>
-            <%= link_to edit_menu_path do %>
-              <i class="fa fa-edit"></i>
-            <% end %>
-            <%= link_to @menu, {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} do %>
-              <i class="fa fa-trash"></i>
-            <% end %>
-          </h1>
-          <h3><%= @menu.price %></h3>
-          <h4><%= @menu.description %></h4>
-
-          <hr>
-
-          <%= link_to new_menu_section_path(@menu), remote:true do %>
-            <h4><i class="fa fa-plus"></i> New Section</h4>
-          <% end %>
-
-          <ul>
-            <%=  render @menu.sections %>
-          </ul>
-
-          <hr>
-
-          <div id="section-form" style="display:none;"></div>
-          <div id="section-edit-form" style="display:none;"></div>
-
-          <div id="dish-form" style="display:none;"></div>
-        </div>
+      <div class="col-lg-10 col-md-10">
+        <%=  render @menu.sections %>
+        <%= link_to "Back", menus_path, class: 'btn btn-outline-danger' %>
+        <%= link_to new_menu_section_path(@menu), remote:true do %>
+          <button class="btn btn-primary"><i class="fa fa-plus"></i> New Section</button>
+        <% end %>
       </div>
     </div>
   </div>
+
+
+  <div id="section-form" style="display:none;"></div>
+  <div id="section-edit-form" style="display:none;"></div>
+
+  <div id="dish-form" style="display:none;"></div>
 </section>
-
-
 
