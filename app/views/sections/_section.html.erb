@@ -7,9 +7,12 @@
   <%= link_to menu_section_path(@menu, section), {method: 'delete', remote: true, data: {confirm: "Are you sure you want to delete '#{section.title}'?"}} do %>
     <i class="fa fa-trash"></i>
   <% end %>
-  <%= link_to edit_menu_section_path(@menu, section), remote:true do %>
+  <%= link_to new_menu_section_dish_path(@menu, section), remote:true do %>
     <i class="fa fa-plus"></i>
   <% end %>
+  <%#= link_to edit_menu_section_path(@menu, section), remote:true do %>
+    <!-- <i class="fa fa-plus"></i> -->
+  <%# end %>
 </h5>
 <p class="menu-info">
   <%= section.description %>
