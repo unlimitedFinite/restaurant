@@ -1,22 +1,29 @@
-<h1>Edit Menu</h1>
+<section>
+  <div class="container text-center">
+    <h2 class="display-4 mb-3">Edit <%= @menu.title %></h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <%= form_with model: @menu, url: menu_path, local: true do |form| %>
+          <p>
+            <%= form.label :title, class: 'dish-title' %><br>
+            <%= form.text_field :title, class: 'menu-input' %>
+          </p>
 
-<%= form_with model: @menu, url: menu_path, local: true do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+          <p>
+            <%= form.label :description, class: 'dish-title' %><br>
+            <%= form.text_area :description, class: 'menu-input' %>
+          </p>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.label :price %><br>
-    <%= form.number_field :price, step: 0.01
- %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+          <p>
+            <%= form.label :price, class: 'dish-title' %><br>
+            <%= form.text_area :price, class: 'menu-input' %>
+          </p>
+          <p>
+            <%= link_to 'Cancel', menu_path(@menu), class: 'btn btn-outline-danger' %>
+            <%= form.submit "Save", class:'btn btn-primary' %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
