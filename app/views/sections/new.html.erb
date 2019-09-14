@@ -5,10 +5,9 @@
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8">
         <%= simple_form_for [@menu, @section], remote: true do |f| %>
-          <%= f.label :title, class: 'dish-title' %>
-          <%= f.input :title, class: "menu-input" %>
-          <%= f.label :description, class: 'dish-title' %>
-          <%= f.input :description, class: "menu-input" %><br>
+          <%#= f.label :title, class: 'dish-title' %>
+          <%= f.input :title %>
+          <%= f.input :description, as: :text %>
           <%= link_to "Cancel", :back, class: 'btn btn-outline-danger' %>
           <%= f.button :submit, class: 'btn btn-primary' %>
         <% end %>

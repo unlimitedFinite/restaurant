@@ -1,6 +1,7 @@
 <section>
   <div class="container text-center">
     <h2 class="display-4 mb-3">
+      <%= link_to "Back", menus_path, class: 'btn btn-outline-secondary back-btn' %>
       <%= @menu.title %>
       <%= link_to edit_menu_path do %>
         <i class="fa fa-edit"></i>
@@ -17,15 +18,8 @@
     <div class="row justify-content-center">
       <div class="col-lg-10 col-md-10">
         <%=  render @menu.sections %>
-        <%= link_to "Back", menus_path, class: 'btn btn-outline-danger' %>
       </div>
     </div>
   </div>
-
-
-  <div id="section-form" style="display:none;"></div>
-  <div id="section-edit-form" style="display:none;"></div>
-
-  <div id="dish-form" style="display:none;"></div>
 </section>
 
