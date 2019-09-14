@@ -1,0 +1,17 @@
+<section>
+  <div class="container text-center">
+    <h2 class="display-4 mb-3">New Section for <%= @menu.title %></h2>
+    <p class="menu-info"></p>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <%= simple_form_for [@menu, @section], remote: true do |f| %>
+          <%#= f.label :title, class: 'dish-title' %>
+          <%= f.input :title %>
+          <%= f.input :description, as: :text %>
+          <%= link_to "Cancel", :back, class: 'btn btn-outline-danger' %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

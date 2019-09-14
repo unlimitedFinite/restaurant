@@ -1,24 +1,17 @@
 <section>
   <div class="container text-center">
-    <h2 class="display-4 mb-3">New Menu</h2>
-    <!-- <p class="menu-info">Enter the menu details below. Only title is mandatory. Description and price are optional.</p> -->
+    <h2 class="display-4 mb-3">Edit <%= @dish.title %></h2>
+    <p class="menu-info"></p>
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8">
-        <%= simple_form_for @menu do |f| %>
+        <%= simple_form_for [@menu, @section, @dish], remote: true do |f| %>
           <%= f.input :title %>
           <%= f.input :description, as: :text %>
           <%= f.input :price, as: :text %>
-          <%= link_to 'Cancel', menus_path, class: 'btn btn-outline-danger' %>
+          <%= link_to "Cancel", menu_path(@menu), class: 'btn btn-outline-danger' %>
           <%= f.button :submit, label: 'Create', class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
   </div>
 </section>
-
-
-
-
-
-
-

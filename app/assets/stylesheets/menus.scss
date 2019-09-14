@@ -19,10 +19,28 @@ ul {
   border-radius: 15px;
 }
 
-.menu-input {
+div.input input {
   width: 400px;
+  margin-bottom: 8px;
 }
 
-textarea.menu-input {
+div.input textarea {
   height: 80px;
+  width: 400px;
+  margin-bottom: 8px;
+}
+
+div.input label {
+  color: black;
+  display: block;
+  line-height: 1.45;
+  font-family: "Playfair Display", serif;
+  font-weight: bold !important;
+  font-size: 1.25rem;
+}
+
+.back-btn {
+  position: fixed;
+  top: 70px;
+  left: 11px;
 }

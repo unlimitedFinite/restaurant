@@ -1,6 +1,7 @@
 <section>
   <div class="container text-center">
     <h2 class="display-4 mb-3">
+      <%= link_to "Back", menus_path, class: 'btn btn-outline-secondary back-btn' %>
       <%= @menu.title %>
       <%= link_to edit_menu_path do %>
         <i class="fa fa-edit"></i>
@@ -8,24 +9,17 @@
       <%= link_to @menu, {method: 'delete', remote: true, data: {confirm: "Are you sure?"}} do %>
         <i class="fa fa-trash"></i>
       <% end %>
+      <%= link_to new_menu_section_path(@menu) do %>
+          <i class="fa fa-plus"></i>
+        <% end %>
     </h2>
     <p class="menu-info"><%= @menu.description %></p>
     <p class="menu-info"><%= @menu.price %></p>
     <div class="row justify-content-center">
       <div class="col-lg-10 col-md-10">
         <%=  render @menu.sections %>
-        <%= link_to "Back", menus_path, class: 'btn btn-outline-danger' %>
-        <%= link_to new_menu_section_path(@menu), remote:true do %>
-          <button class="btn btn-primary"><i class="fa fa-plus"></i> New Section</button>
-        <% end %>
       </div>
     </div>
   </div>
-
-
-  <div id="section-form" style="display:none;"></div>
-  <div id="section-edit-form" style="display:none;"></div>
-
-  <div id="dish-form" style="display:none;"></div>
 </section>
 
